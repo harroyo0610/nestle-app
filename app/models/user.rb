@@ -12,21 +12,25 @@ class User < ApplicationRecord
   attr_writer :login
 
   def validate_username
-    if User.where(email: username).exists?
+    if User.where(username: username).exists?
       errors.add(:username, :invalid)
     end
   end
 
+  def email_required?
+    false
+  end
+
   def login
-    @login || self.username || self.email
+    @login || self.username
   end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
-    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-      conditions[:email].downcase! if conditions[:email]
+      where(conditions).where(["username = :value", { :value => login }]).first
+    elsif conditions.has_key?(:username)
+      conditions[:username].downcase! if conditions[:username]
       where(conditions.to_h).first
     end
   end
