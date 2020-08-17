@@ -8,16 +8,18 @@ class User < ApplicationRecord
   
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-  validate :validate_username
   attr_writer :login
 
-  def validate_username
-    if User.where(username: username).exists?
-      errors.add(:username, :invalid)
-    end
-  end
+  enum role: {
+    merchant: 'merchant',
+    admin: 'admin'
+  }
 
   def email_required?
+    false
+  end
+
+  def will_save_change_to_email?
     false
   end
 

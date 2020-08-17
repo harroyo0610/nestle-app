@@ -42,11 +42,15 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
-  database: nestle_app_production
-  username: nestle_app
-  password: <%= ENV['NESTLE_APP_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  host: 3306
+
+# production:
+#   <<: *default
+#   database: nestle_app_production
+#   username: nestle_app
+#   password: <%= ENV['NESTLE_APP_DATABASE_PASSWORD'] %>

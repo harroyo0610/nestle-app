@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
   root 'home#index'
-  devise_for :users
+  get "/index",to: 'home#index'
+  devise_for :users, ActiveAdmin::Devise.config
+  
+  ActiveAdmin.routes(self)
   namespace :api do
     devise_scope :user do
       post '/signup', to: "registrations#create"
