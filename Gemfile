@@ -30,7 +30,14 @@ gem 'devise-jwt', '~> 0.6.0'
 gem 'activeadmin'
 gem 'active_skin'
 
+# sentry
 gem "sentry-raven"
+
+# simple form
+gem 'simple_form'
+
+# redis
+gem 'redis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

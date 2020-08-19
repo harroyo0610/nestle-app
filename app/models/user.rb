@@ -36,4 +36,9 @@ class User < ApplicationRecord
       where(conditions.to_h)&.first
     end
   end
+
+  def gravatar_url
+    gravatar_id = Digest::MD5::hexdigest(login).downcase
+    "https://gravatar.com/avatar/#{gravatar_id}.png"
+  end
 end
