@@ -28,12 +28,12 @@ class User < ApplicationRecord
   end
 
   def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions).where(["username = :value", { :value => login }]).first
-    elsif conditions.has_key?(:username)
-      conditions[:username].downcase! if conditions[:username]
-      where(conditions.to_h).first
+    conditions = warden_conditions&.dup
+    if login = conditions&.delete(:login)
+      where(conditions).where(["username = :value", { :value => login }])&.first
+    elsif conditions&.has_key?(:username)
+      conditions[:username]&.downcase! if conditions[:username]
+      where(conditions.to_h)&.first
     end
   end
 end
