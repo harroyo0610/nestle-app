@@ -11,9 +11,11 @@
 #
 default: &default
   adapter: mysql2
-  host: localhost
-  username: root
-  password: root
+  url: mysql2://admin:secretsecret@nestleproduction.cv8m9k9synde.us-east-2.rds.amazonaws.com/nestleproduction?ssl_ca=rds-ca-2019-root.pem
+  username: admin
+  password: secretsecret
+  database: nestleproduction
+  host: 3306
 
 development:
   <<: *default
@@ -48,7 +50,6 @@ production:
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
   database: <%= ENV['DATABASE_NAME'] %>
-  host: 3306
 
 # production:
 #   <<: *default
