@@ -1,4 +1,6 @@
-<%= simple_form_for @room do |form| %>
-  <%= form.input :name %>
-  <%= form.submit "Save", class: 'btn btn-success' %>
-<% end %>
+<div class="card col-4 offset-4"><br>
+  <%= simple_form_for @room do |form| %>
+    <%= form.input :name %>
+    <%= form.submit "Save", class: 'btn btn-primary' %><br><br>
+  <% end %>
+</div>

@@ -28,7 +28,6 @@ gem 'devise-jwt', '~> 0.6.0'
 
 # activeadmin
 gem 'activeadmin'
-gem 'active_skin'
 
 # sentry
 gem "sentry-raven"
@@ -38,6 +37,9 @@ gem 'simple_form'
 
 # redis
 gem 'redis'
+
+# bootstrap-sass
+gem "active_skin"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

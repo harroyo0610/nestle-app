@@ -38,7 +38,10 @@ class User < ApplicationRecord
   end
 
   def gravatar_url
-    gravatar_id = Digest::MD5::hexdigest(login).downcase
-    "https://gravatar.com/avatar/#{gravatar_id}.png"
+    "https://panndora-topics.s3.us-east-2.amazonaws.com/panndoralogo.png"
+  end
+
+  def is_admin?
+    self.role == 'admin'
   end
 end

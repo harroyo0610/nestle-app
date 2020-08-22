@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :room_messages
   resources :rooms
-  root 'home#index'
+  root 'rooms#index'
   get "/index",to: 'home#index'
   devise_for :users, ActiveAdmin::Devise.config
   

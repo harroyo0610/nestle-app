@@ -11,20 +11,16 @@
 
   <body>
     <div class="fluid-container">
-      <div class="row">
-        <div class="col-12">
-          <%= render partial: 'shared/navigation_bar' %>
-          <div class="my-3">
-            <% if notice %>
-              <p class="alert alert-success"><%= notice %></p>
-            <% end %>
-            <% if alert %>
-              <p class="alert alert-danger"><%= alert %></p>
-            <% end %>
-            <%= yield %>
-            </div>  
-        </div>
-      </div>
+      <%= render partial: 'shared/navigation_bar' %>
+      <div class="my-3">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+        </div>  
     </div>
   </body>
 </html>

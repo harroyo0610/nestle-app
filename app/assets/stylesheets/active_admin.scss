@@ -7,19 +7,50 @@
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
 
-// Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
 
 $skinActiveColor: #0a649b;
-$skinHeaderBck: #00a5de;
-$panelHeaderBck: #0074c9;
+$skinHeaderBck: #0074c9;
+$panelHeaderBck: #60d4f7;
+$skinLogo: none;
 
 @import "active_skin";
+// Active Bootstrap
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+
+#header h1.site_title {
+  text-indent: 0%;
+  padding-left: 30px;
+img {
+    height: 25px;
+    margin-top: 7px;
+  }
+}
+.img_signin{
+  display: block;
+  margin: 0 auto;
+}
+
+body.logged_out #content_wrapper {
+
+  margin-top: 50px;
+}
+
+form input[type=text], form input[type=password]{
+  width: 100%;
+}
+
+#site_title_image{
+  width: 50;
+  height: 50;
+}
+
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
-
-
-$skinLogo: url("https://panndora-topics.s3.us-east-2.amazonaws.com/panndoralogo.png") no-repeat 0 0;

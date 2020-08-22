@@ -16,9 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    return admin_root_path if resource&.role == 'admin'
-
-    index_path
+    rooms_path
   end
 
   private
