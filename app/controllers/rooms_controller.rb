@@ -1,4 +1,7 @@
 class RoomsController < ApplicationController
+  MUX_TOKEN_ID='38830a22-7b79-4ceb-ada2-fe961b0516ba'
+  MUX_TOKEN_SECRET='XBEpTKeFj/X+j8/xYAu1AHkZ+qTlHwKDDzTNi47KFr6g1XvNnGK+ql3UoiJhtydyyFrHWqZS44o'
+
   # Loads:
   # @rooms = all rooms
   # @room = current room when applicable
@@ -38,6 +41,15 @@ class RoomsController < ApplicationController
   def show
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
+
+    openapi = MuxRuby.configure do |config|
+      config.username = MUX_TOKEN_ID
+      config.password = MUX_TOKEN_SECRET
+    end
+
+    live_api = MuxRuby::LiveStreamsApi.new
+    streams = live_api.list_live_streams()
+    @video_stram = streams.data.first.playback_ids.first.id
   end
 
   protected
