@@ -2,8 +2,9 @@
   <%= @room.name.capitalize %>
 </h1>
 
+
+
 <!-- Note that this will only work in browsers that natively support HLS (Safari, Edge). See the Playback Guide for more use cases. -->
-<video controls autoplay src="https://stream.mux.com/63HmH6TvbO01W4cCcQYdDgzu2717qalxGoA00jxxOUYqc.m3u8">
 
 <div class="row col-md-12">
   <div class="col-md-3">
@@ -11,6 +12,9 @@
   </div>
 
   <div class="col-md-8">
+    <div class="offset-2 col-md-8">
+      <%= render partial: 'video_streaming' %>
+    </div>
     <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
       <% @room_messages.each do |room_message| %>
         <li class="list-group-item">
