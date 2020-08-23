@@ -7,7 +7,16 @@ class RoomMessagesController < ApplicationController
                                        message: params.dig(:room_message, :message)
     RoomChannel.broadcast_to @room, @room_message
 
-    redirect_to @room
+    respond_to do |format|
+      if @room_message.save
+        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.js
+        format.json { render json: @room, status: :created, location: @room }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @room_message.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   protected

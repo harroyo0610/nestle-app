@@ -3,9 +3,11 @@ module Api
         
         def create
             build_resource(sign_up_params)
-            
-            resource.save
-            render json: resource, status: :created         
+            if resource.save
+                render json: resource, status: :created
+            else
+                render json: resource.errors.messages, status: :unauthorized
+            end                
         end
     end
 end

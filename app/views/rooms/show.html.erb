@@ -15,32 +15,33 @@
     <div class="offset-2 col-md-8">
       <%= render partial: 'video_streaming' %>
     </div>
-    <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
-      <% @room_messages.each do |room_message| %>
-        <li class="list-group-item">
-          <div class="row no-gutters">
-            <div class="col-auto text-center">
-              <%= image_tag current_user.gravatar_url, width: 50, height: 50, class: "rounded-circle" %>
-            </div>
+    <div  id="chat-messages"  style="overflow-y: scroll; height:300px;">
+      <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
+        <% @room_messages.reverse_each do |room_message| %>
+          <li class="list-group-item <%= room_message.user.id == current_user.id ? 'list-group-item-info' : '' %>">
+            <div class="row no-gutters">
+              <div class="col-auto text-center">
+                <%= image_tag current_user.gravatar_url, width: 50, height: 50, class: "rounded-circle" %>
+              </div>
 
-            <div class="col">
-              <div class="message-content">
-                <p class="mb-1">
-                  <%= room_message.message %>
-                </p>
+              <div class="col">
+                <div class="message-content">
+                  <p class="mb-1">
+                    <%= room_message.message %>
+                  </p>
 
-                <div class="text-right">
-                  <small class="text-muted">
-                    <%= "#{room_message.user.username.capitalize}-#{room_message.created_at.strftime("%F %H:%M:%S")}" %>
-                  </small>
+                  <div class="text-right">
+                    <small class="text-muted">
+                      <%= "#{room_message.user.username.capitalize}-#{room_message.created_at.strftime("%F %H:%M:%S")}" %>
+                    </small>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-
+          </li>
+        <% end %>
+      </ul>
+    </div>
     <%= simple_form_for @room_message, remote: true do |form| %>
       <div class="input-group mb-3">
         <%= form.input :message, as: :string,
@@ -51,7 +52,7 @@
                                    class: 'chat-input'
                                  } %>
         <div class="input-group-append">
-          <%= form.submit t('views.rooms.btn_send_message'), class: 'btn btn-primary chat-input' %>
+          <%= form.submit t('views.rooms.btn_send_message'), remote: true, class: 'btn btn-primary chat-input' %>
         </div>
       </div>
 
