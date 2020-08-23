@@ -19,3 +19,11 @@ require("packs/room")
 // const imagePath = (name) => images(name, true)
 import '../stylesheets/application'
 import './bootstrap_custom.js'
+
+
+
+window.setTimeout(function() {
+    $(".alert, .flash").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 2000);

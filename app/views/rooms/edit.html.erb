@@ -1,5 +1,5 @@
 <h1>
-  Editing room <%= @room.name %>
+  <%= "#{t('views.rooms.label_edit')} #{@room.name}" %>
 </h1>
 
 <%= render partial: 'form' %>

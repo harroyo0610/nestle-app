@@ -1,0 +1,23 @@
+es:
+  views:
+    rooms:
+      btn_save: Guardar
+      label_create: Crear una sala
+      text_no_rooms: No hay salas para mostrar
+      label_edit: Editando sala
+      text_welcome: Bienvenido a Pandora
+      text_create_new: Puede crear o unirse a una sala desde la barra lateral
+      label_creating_new: Creando nueva sala
+      btn_send_message: Enviar
+      placeholder_type_here: Escribe aqui
+    navigation_bar:
+      rooms: Salas
+      users: Usuarios
+      logout: Salir
+      login: Ingresar
+      signup: Registrarse
+    users:
+      username: Usuario
+      password: Contraseña
+      password_confirmation: Confirmar contraseña
+      characters: caracteres minimos

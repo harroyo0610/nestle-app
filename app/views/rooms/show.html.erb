@@ -42,12 +42,12 @@
         <%= form.input :message, as: :string,
                                  wrapper: false,
                                  label: false,
-                                 placeholder: "Type here",
+                                 placeholder: t('views.rooms.placeholder_type_here'),
                                  input_html: {
                                    class: 'chat-input'
                                  } %>
         <div class="input-group-append">
-          <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+          <%= form.submit t('views.rooms.btn_send_message'), class: 'btn btn-primary chat-input' %>
         </div>
       </div>
 

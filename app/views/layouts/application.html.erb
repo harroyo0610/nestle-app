@@ -12,12 +12,12 @@
   <body>
     <div class="fluid-container">
       <%= render partial: 'shared/navigation_bar' %>
-      <div class="my-3">
+      <div class="col-12">
         <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
+          <p class="alert alert-success offset-2 col-8"  role="alert"><%= notice %></p>
         <% end %>
         <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
+          <p class="alert alert-danger offset-2 col-8"  role="alert"><%= alert %></p>
         <% end %>
         <%= yield %>
         </div>  

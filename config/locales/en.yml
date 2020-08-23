@@ -1,33 +1,23 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  views:
+    rooms:
+      btn_save: Save
+      label_create: Create new room
+      text_no_rooms: There are not rooms to show
+      label_edit: Editing room
+      text_welcome: Welcome to Pandora
+      text_create_new: You can create or join a room from the sidebar.
+      label_creating_new: Creating new room
+      btn_send_message: Send
+      placeholder_type_here: Type here
+    navigation_bar:
+      rooms: Rooms
+      users: Users
+      logout: Logout
+      login: Login
+      signup: Sign up
+    users:
+      username: Username
+      password: Password
+      password_confirmation: Password confirmation
+      characters: characters minimium

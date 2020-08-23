@@ -1,4 +1,4 @@
-<%= link_to "Create a room", new_room_path, class: 'btn btn-outline-primary offset-2' %>
+<%= link_to t('views.rooms.label_create'), new_room_path, class: 'btn btn-outline-primary offset-2' %>
 <hr>
 <% if @rooms.present? %>
   <div class="list-group col-9 offset-1">
@@ -8,6 +8,6 @@
   </div>
 <% else %>
   <div class="text-muted">
-    The are no rooms
+    <%= t('views.rooms.text_no_rooms') %>
   </div>
 <% end %>

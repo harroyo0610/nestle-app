@@ -3,12 +3,12 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="form-group">
-    <%= f.label :username %><br />
+    <%= f.label t('views.users.username') %><br />
     <%= f.text_field :username, autofocus: true, required: true, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label t('views.users.password') %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -16,10 +16,10 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label t('views.users.password_confirmation') %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div>
 
-    <%= f.submit "Sign up", class: 'btn btn-primary' %>
-    <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-link' %><br><br>
+    <%= f.submit t('views.navigation_bar.signup'), class: 'btn btn-primary' %>
+    <%= link_to t('views.navigation_bar.login'), new_session_path(resource_name), class: 'btn btn-link' %><br><br>
 <% end %>
