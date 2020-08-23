@@ -42,14 +42,14 @@ class RoomsController < ApplicationController
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
 
-    openapi = MuxRuby.configure do |config|
-      config.username = MUX_TOKEN_ID
-      config.password = MUX_TOKEN_SECRET
-    end
+    # openapi = MuxRuby.configure do |config|
+    #   config.username = MUX_TOKEN_ID
+    #   config.password = MUX_TOKEN_SECRET
+    # end
 
-    live_api = MuxRuby::LiveStreamsApi.new
-    streams = live_api.list_live_streams()
-    @video_stram = streams.data.first.playback_ids.first.id
+    # live_api = MuxRuby::LiveStreamsApi.new
+    # streams = live_api.list_live_streams()
+    # @video_stream = streams.data.first.playback_ids.first.id
   end
 
   protected
