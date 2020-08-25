@@ -18,11 +18,24 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new permitted_parameters
 
-    if @room.save
-      flash[:success] = "Room #{@room.name} was created successfully"
-      redirect_to rooms_path
-    else
-      render :new
+    # if @room.save
+    #   ActionCable.server.broadcast 'room_channel', content: @room
+    #   flash[:success] = "Room #{@room.name} was created successfully"
+    #   redirect_to rooms_path
+    # else
+    #   render :new
+    # end
+
+    respond_to do |format| 
+      if @room.save 
+        ActionCable.server.broadcast 'room_channel', content: @room 
+        format.html { redirect_to @room, notice: 'room was successfully created.' } 
+        format.json { render :show, status: :created, location: @room } 
+        format.js 
+      else 
+        format.html { render :new } 
+        format.json { render json: @room.errors, status: :unprocessable_entity } 
+      end 
     end
   end
 

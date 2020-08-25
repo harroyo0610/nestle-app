@@ -9,6 +9,10 @@ module Api
             
             respond_with resource, location: after_sign_in_path_for(resource)
         end
+
+        def signed_in
+            render json: user_signed_in?
+        end
     
         private
     
