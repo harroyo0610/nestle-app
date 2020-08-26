@@ -11,7 +11,7 @@ module Api
         end
 
         def signed_in
-            render json: user_signed_in?
+            render json: { "response": user_signed_in? }
         end
     
         private

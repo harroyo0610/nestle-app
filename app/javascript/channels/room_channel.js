@@ -1,25 +1,23 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("RoomChannel", {
-  connected() {
-    alert("eded")
-    // Called when the subscription is ready for use on the server
-  },
-
-  disconnected() {
-    // Called when the subscription has been terminated by the server
-  },
-
+consumer.subscriptions.create({ channel: "RoomChannel" }, {
   received(data) {
-    var node = document.createElement("P"); 
-    alert("ff")
-    var textnode = document.createTextNode(data.content.message); 
-    node.id = data.content.id;
-    node.appendChild(textnode); 
+    alert("Hola")
+    this.appendLine(data)
+  },
 
-    document.getElementById("new_message").appendChild(node);
-   document.getElementById('chat_message').value= ''
+  appendLine(data) {
+    const html = this.createLine(data)
+    const element = document.querySelector("[data-chat-room='Best Room']")
+    element.insertAdjacentHTML("beforeend", html)
+  },
 
-    // Called when there's incoming data on the websocket for this channel
+  createLine(data) {
+    return `
+      <article class="chat-line">
+        <span class="speaker">${data["user"]}</span>
+        <span class="body">${data["message"]}</span>
+      </article>
+    `
   }
-});
+})
