@@ -1,7 +1,5 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    binding.pry
-    room = Room.find(params[:id])
-    stream_from room
+    stream_from "room_channel"
   end
 end

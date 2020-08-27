@@ -15,8 +15,11 @@
     <div class="offset-2 col-md-8">
       <%= render partial: 'video_streaming' %>
     </div>
+    <div id="message_holder">
+
+</div>
     <div  id="chat-messages"  style="overflow-y: scroll; height:300px;">
-      <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
+      <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>" id="chat_list">
         <% @room_messages.reverse_each do |room_message| %>
           <li class="list-group-item <%= room_message.user.id == current_user.id ? 'list-group-item-info' : '' %>">
             <div class="row no-gutters">

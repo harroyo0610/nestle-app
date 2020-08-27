@@ -25,7 +25,7 @@ module Api
         end
     
         def respond_to_on_destroy
-            render json: true
+            render json: { "response": true }
         end
     end
 end

@@ -5,11 +5,9 @@
 
 require("@rails/ujs").start()
 require("turbolinks").start()
+require("jquery");
 require("@rails/activestorage").start()
 require("channels")
-require("channels/room_channel")
-
-require("packs/room")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -22,9 +20,13 @@ import '../stylesheets/application'
 import './bootstrap_custom.js'
 
 
+$(document).on('turbolinks:load', function() {
+    console.log("application");
+})
 
 window.setTimeout(function() {
     $(".alert, .flash").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
     });
 }, 2000);
+

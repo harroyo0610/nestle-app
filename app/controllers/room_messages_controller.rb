@@ -4,14 +4,9 @@ class RoomMessagesController < ApplicationController
   def create
     @room_message = RoomMessage.create user: current_user, room: @room, message: params.dig(:room_message, :message)
     
-    
-    RoomChannel.broadcast_to(@room, @room_message)
-
-      # if @room_message.save
-      #   redirect_to @room
-      # else
-      #   redirect_to @room
-      # end
+    if @room_message.save
+      ActionCable.server.broadcast 'room_channel', content: @room_message
+    end
   end
 
   protected
