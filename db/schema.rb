@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_172302) do
+ActiveRecord::Schema.define(version: 2020_08_31_013639) do
+
+  create_table "charge_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "url"
+    t.integer "created_by"
+    t.date "month"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "room_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "room_id", null: false
@@ -45,6 +53,12 @@ ActiveRecord::Schema.define(version: 2020_08_19_172302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "jti"
+    t.string "region", default: ""
+    t.integer "session_id"
+    t.boolean "group_call", default: false
+    t.boolean "in_call", default: false
+    t.boolean "calling", default: false
+    t.string "who_is_calling", default: ""
     t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

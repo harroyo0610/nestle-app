@@ -6,14 +6,10 @@ module Api
             set_flash_message!(:notice, :signed_in)
             sign_in(resource_name, resource)
             yield resource if block_given?
-            
-            respond_with resource, location: after_sign_in_path_for(resource)
+
+            render json: { 'user': resource, 'sign_in_count': resource.sign_in_count }
         end
 
-        def signed_in
-            render json: { "response": user_signed_in? }
-        end
-    
         private
     
         def respond_with(resource, _opts = {})

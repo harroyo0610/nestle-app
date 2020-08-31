@@ -11,7 +11,7 @@
 #
 default: &default
   adapter: mysql2
-  url: mysql2://admin:secretsecret@nestleproduction.cv8m9k9synde.us-east-2.rds.amazonaws.com/nestleproduction?ssl_ca=rds-ca-2019-root.pem
+  url: mysql2://admin:secretsecret@pandora.cv8m9k9synde.us-east-2.rds.amazonaws.com/pandora?ssl_ca=rds-ca-2019-root.pem
   username: admin
   password: secretsecret
   database: nestleproduction

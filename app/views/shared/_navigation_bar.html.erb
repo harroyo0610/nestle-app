@@ -15,6 +15,9 @@
         <li class="nav-item">
           <%= link_to t('views.navigation_bar.users'), admin_users_path, class: 'nav-link' %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Cargar usuarios", new_charge_user_path, class: 'nav-link' %>
+        </li>
       <% end %>
     </ul>
     <div class="dropdown">
@@ -24,6 +27,7 @@
       </a>
 
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Cambiar password", edit_user_path, class: 'dropdown-item' %>
         <%= link_to t('views.navigation_bar.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </div>

@@ -41,6 +41,12 @@ gem 'redis'
 # bootstrap-sass
 gem "active_skin"
 
+# aws s3
+gem 'carrierwave'
+gem 'fog-aws'
+
+gem 'active_model_serializers'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
