@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       post '/signup', to: "registrations#create"
       post '/login', to: "sessions#create"
       delete '/logout', to: "sessions#destroy"
-      get '/signed_in/:id', to: "sessions#signed_in"
+      get '/signed_in', to: "sessions#signed_in"
       get '/currently_user', to: "sessions#currently_user"
       get '/rooms/:id', to: "rooms#show"
       patch '/user', to: "users#update"
