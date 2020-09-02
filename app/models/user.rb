@@ -11,8 +11,13 @@ class User < ApplicationRecord
   attr_writer :login
 
   enum role: {
-    merchant: 'merchant',
-    admin: 'admin'
+    merchant: 'mercaderista',
+    admin: 'admin',
+    asesor_pdv: 'asesor pdv',
+    ejecutivo: 'ejecutivo',
+    jefe_distrito: 'jefe de distrito',
+    promoventa: 'promoventa',
+    supervisor: 'supervisor'
   }
 
   def email_required?
