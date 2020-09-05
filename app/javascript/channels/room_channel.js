@@ -11,10 +11,14 @@ consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
-    console.log(data.content);
-    var item = '<li class="list-group-item list-group-item-info"><div class="row no-gutters"><div class="col-auto text-center"><img src="' + data.content.user_avatar_url +'" width="50" height="50" class= "rounded-circle"></div><div class="col"><div class="message-content"><p class="mb-1">' + data.content.message + '</p><div class="text-right"><small class="text-muted">' + data.content.created_at + '</small></div></div></div></div></li>'
-    $("#chat_list").prepend(item);
-    
+    var item = '<li class="list-group-item row col-12"><div class="row "><div class="col-auto text-center col-3"><img src="' + data.content.user_avatar_url +'" width="50" height="50" class= "rounded-circle"></div><div class="col"><div class="message-content"><p class="mb-1">' + data.content.message + '</p><div class="text-right"><small class="font-weight-bolder">' + data.user.username + '</small></div></div></div></div></li>'
+    $("#chat_list").append(item);
+    $('#room_message_message').val('');
+    var elmnt = document.getElementById("chat-messages");
+    console.log(elmnt.scrollHeight)
+    $( "#chat-messages" ).scrollTop(elmnt.scrollHeight);
+
+
     // Called when there's incoming data on the websocket for this channel
   }
 });

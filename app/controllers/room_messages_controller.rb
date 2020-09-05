@@ -3,9 +3,9 @@ class RoomMessagesController < ApplicationController
 
   def create
     @room_message = RoomMessage.create user: current_user, room: @room, message: params.dig(:room_message, :message)
-    
+
     if @room_message.save
-      ActionCable.server.broadcast 'room_channel', content: @room_message
+      ActionCable.server.broadcast 'room_channel', content: @room_message, user: @room_message.user
     end
   end
 

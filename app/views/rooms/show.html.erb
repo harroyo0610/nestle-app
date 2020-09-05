@@ -20,22 +20,22 @@
 </div>
     <div  id="chat-messages"  style="overflow-y: scroll; height:300px;">
       <ul class="list-group list-group-flush" data-channel-subscribe="room" data-room-id="<%= @room.id %>" id="chat_list">
-        <% @room_messages.reverse_each do |room_message| %>
-          <li class="list-group-item <%= room_message.user.id == current_user.id ? 'list-group-item-info' : '' %>">
-            <div class="row no-gutters">
-              <div class="col-auto text-center">
+        <% @room_messages.each do |room_message| %>
+          <li class="list-group-item row col-12">
+            <div class="row ">
+              <div class="col-auto text-center col-3">
                 <%= image_tag current_user.gravatar_url, width: 50, height: 50, class: "rounded-circle" %>
               </div>
 
-              <div class="col">
+              <div class="col-9">
                 <div class="message-content">
                   <p class="mb-1">
                     <%= room_message.message %>
                   </p>
 
                   <div class="text-right">
-                    <small class="text-muted">
-                      <%= "#{room_message.user.username.capitalize}-#{room_message.created_at.strftime("%F %H:%M:%S")}" %>
+                    <small class="font-weight-bolder">
+                      <%= "#{room_message.user.username.capitalize}" %>
                     </small>
                   </div>
                 </div>
