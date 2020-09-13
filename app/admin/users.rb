@@ -21,7 +21,7 @@ ActiveAdmin.register User do
       f.input :username
       f.input :password
       f.input :password_confirmation 
-      f.input :role, as: :select, collection: ['merchant', 'admin']
+      f.input :role, as: :select, collection: ['merchant', 'admin', 'asesor_pdv', 'ejecutivo', 'jefe_distrito', 'promoventa', 'supervisor']
     end
     f.actions
   end

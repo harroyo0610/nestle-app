@@ -9,13 +9,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   namespace :api, defaults: { format: :json } do
     devise_scope :user do
-      post '/signup', to: "registrations#create"
       post '/login', to: "sessions#create"
       delete '/logout', to: "sessions#destroy"
       get '/signed_in', to: "sessions#signed_in"
       get '/currently_user', to: "sessions#currently_user"
       get '/rooms/:id', to: "rooms#show"
-      patch '/user', to: "users#update"
       get '/get_user_type/:id', to: "users#get_user_type"
       get '/get_user_by_username/:username', to: "users#get_user_by_username"
       get '/get_user_by_id/:id', to: "users#get_user_by_id"

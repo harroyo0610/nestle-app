@@ -1,10 +1,4 @@
 class RoomsController < ApplicationController
-  MUX_TOKEN_ID='38830a22-7b79-4ceb-ada2-fe961b0516ba'
-  MUX_TOKEN_SECRET='XBEpTKeFj/X+j8/xYAu1AHkZ+qTlHwKDDzTNi47KFr6g1XvNnGK+ql3UoiJhtydyyFrHWqZS44o'
-
-  # Loads:
-  # @rooms = all rooms
-  # @room = current room when applicable
   before_action :load_entities
 
   def index
@@ -24,18 +18,6 @@ class RoomsController < ApplicationController
     else
       render :new
     end
-
-    # respond_to do |format| 
-    #   if @room.save 
-    #     ActionCable.server.broadcast 'room_channel', content: @room 
-    #     format.html { redirect_to @room, notice: 'room was successfully created.' } 
-    #     format.json { render :show, status: :created, location: @room } 
-    #     format.js 
-    #   else 
-    #     format.html { render :new } 
-    #     format.json { render json: @room.errors, status: :unprocessable_entity } 
-    #   end 
-    # end
   end
 
   def edit

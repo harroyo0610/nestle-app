@@ -8,6 +8,7 @@ class User < ApplicationRecord
   
   validates :username, uniqueness: { case_sensitive: false }, presence: true
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  
   attr_writer :login
 
   enum role: {
@@ -48,15 +49,5 @@ class User < ApplicationRecord
 
   def is_admin?
     self.role == 'admin'
-  end
-
-  def generate_jwt
-    JWT.encode(
-      { 
-        id: id,
-        exp: 30.days.from_now.to_i 
-      },
-      Rails.application.secrets.secret_key_base
-    )
   end
 end

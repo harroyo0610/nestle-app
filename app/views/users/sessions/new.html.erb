@@ -1,5 +1,5 @@
 
-<%= image_tag 'https://panndora-topics.s3.us-east-2.amazonaws.com/panndoralogo.png', width: 200, height: 200, class: "img_signin" %>
+<%= image_tag 'logo.png', width: 200, height: 200, class: "img_signin" %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %><br>
   <div class="form-group">
     <%= f.label :login, t('views.users.username') %><br />
@@ -11,6 +11,5 @@
     <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
   </div>
 
-  <%= f.submit t('views.navigation_bar.login'), class: 'btn btn-primary' %>
-  <%= link_to t('views.navigation_bar.signup'), new_registration_path(resource_name), class: 'btn btn-link' %><br><br>
+  <%= f.submit t('views.navigation_bar.login'), class: 'btn btn-primary' %><br><br>
 <% end %>
