@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get '/get_user_type/:id', to: "users#get_user_type"
       get '/get_user_by_username/:username', to: "users#get_user_by_username"
       get '/get_user_by_id/:id', to: "users#get_user_by_id"
+      patch '/user', to: "users#update"
     end
   end
 
