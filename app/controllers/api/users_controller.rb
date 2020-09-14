@@ -27,7 +27,7 @@ module Api
       private
       
       def user_params
-          params.require(:user).permit(:id, :username, :gravatar_url, :password, :password_confirmation)
+          params.require(:user).permit(:id, :username, :gravatar_url, :password, :password_confirmation, :session_id, :group_call, :in_call, :calling, :who_is_calling)
       end
   end
 end
