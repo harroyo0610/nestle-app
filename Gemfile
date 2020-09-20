@@ -47,6 +47,9 @@ gem 'fog-aws'
 
 gem 'active_model_serializers'
 
+gem 'whenever', require: false
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -66,6 +69,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
+  gem "capistrano", "~> 3.14", require: false
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-db-tasks", require: false
+
 end
 
 group :test do

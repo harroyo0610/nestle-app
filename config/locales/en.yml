@@ -5,7 +5,7 @@ en:
       label_create: Create new room
       text_no_rooms: There are not rooms to show
       label_edit: Editing room
-      text_welcome: Welcome to Pandora
+      text_welcome: Welcome to Conexiones
       text_create_new: You can create or join a room from the sidebar.
       label_creating_new: Creating new room
       btn_send_message: Send
