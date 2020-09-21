@@ -16,7 +16,7 @@
     </ul>
     <div class="dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= image_tag current_user.gravatar_url, width: 50, height: 50, class: "rounded-circle" %>
+        <%= image_tag current_user.gravatar_url.to_s, width: 50, height: 50, class: "rounded-circle" %>
         <%= current_user.username %>
       </a>
 

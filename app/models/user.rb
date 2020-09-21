@@ -44,7 +44,7 @@ class User < ApplicationRecord
   end
 
   def gravatar_url
-    "https://panndora-topics.s3.us-east-2.amazonaws.com/panndoralogo.png"
+    "https://panndora-topics.s3.us-east-2.amazonaws.com/logo.png"
   end
 
   def is_admin?
